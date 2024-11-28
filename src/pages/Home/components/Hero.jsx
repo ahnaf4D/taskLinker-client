@@ -45,12 +45,18 @@ const Hero = () => {
         >
             {slides.map((slide) => (
                 <div key={slide.id} className="relative">
-                    <img src={slide.image} alt={slide.heading} className="w-full h-[500px] object-cover" />
-                    <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center px-5">
-                        <h2 className="text-4xl font-bold mb-3">{slide.heading}</h2>
-                        <p className="text-2xl font-medium mb-4">{slide.title}</p>
-                        <p className="text-lg max-w-2xl">{slide.description}</p>
-                        <button className="mt-5 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                    <img src={slide.image} alt={slide.heading} className="w-full h-[500px] object-cover brightness-75" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black flex flex-col justify-center items-center text-white text-center px-5 py-10">
+                        <h2 className="text-5xl md:text-6xl font-extrabold mb-5 tracking-widest text-shadow-md">
+                            {slide.heading}
+                        </h2>
+                        <p className="text-3xl md:text-4xl font-semibold mb-6 opacity-80">
+                            {slide.title}
+                        </p>
+                        <p className="text-lg md:text-xl max-w-3xl opacity-90 mb-8 px-2">
+                            {slide.description}
+                        </p>
+                        <button className="px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 text-white font-semibold rounded-lg transform hover:scale-110 hover:shadow-xl transition-transform duration-300 ease-in-out">
                             Get Started
                         </button>
                     </div>
