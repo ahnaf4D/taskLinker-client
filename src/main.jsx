@@ -8,7 +8,7 @@ import MainLayout from './layouts/MainLayout.jsx'
 import Home from './pages/Home/Home.jsx'
 import Login from './pages/Auth/Login.jsx'
 import Register from './pages/Auth/Register.jsx'
-import AuthProvider from './Providers/AuthProviders.jsx'
+import AuthProvider from './providers/AuthProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
