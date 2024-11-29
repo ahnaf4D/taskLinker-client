@@ -6,10 +6,12 @@ import Logo from "../../assets/logo.png";
 import { Link, NavLink } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useSingleUser from "../../hooks/useSingleUser";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const { user, logOutUser } = useAuth();
+    const userData = useSingleUser();
     const handleLogoutUser = async () => {
         try {
             await logOutUser();
@@ -86,7 +88,7 @@ const Navbar = () => {
                             Profile
                         </button>
                         <div className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-md shadow-md font-bold">
-                            <span>0</span>
+                            <span>{userData?.user?.coin}</span>
                             <img src={coinImage} alt="coins" className="h-5 w-5" />
                         </div>
                         <button className="px-5 py-2 bg-red-800 text-white font-medium rounded-md shadow-md hover:shadow-lg hover:scale-105 transition-transform" onClick={handleLogoutUser}>
@@ -144,7 +146,7 @@ const Navbar = () => {
                     Profile
                 </button>
                     <div className="mx-4 flex items-center gap-2 bg-white text-black px-4 py-2 rounded-md shadow-md font-bold">
-                        <span>0</span>
+                        <span>{userData?.user?.coin}</span>
                         <img src={coinImage} alt="coins" className="h-5 w-5" />
                     </div>
                 </div>}
