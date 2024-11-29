@@ -39,10 +39,12 @@ const Register = () => {
         const { email, name, role, user_avatar, password } = data;
         const avatarFile = user_avatar[0];
         const image = await uploadingImageToCloudinary(avatarFile);
+        const coin = role == 'task_creator' ? 50 : 10;
         const userData = {
             name,
             email,
             role,
+            coin,
             avatar: image,
         }
         try {

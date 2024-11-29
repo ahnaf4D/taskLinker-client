@@ -5,11 +5,32 @@ import coinImage from "../../assets/dollar.png";
 import Logo from "../../assets/logo.png";
 import { Link, NavLink } from "react-router";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const { user } = useAuth();
+    const { user, logOutUser } = useAuth();
+    const handleLogoutUser = async () => {
+        try {
+            await logOutUser();
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Logout Successfully!",
+                showConfirmButton: false,
+                timer: 1500
+            });
 
+        } catch (error) {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: error,
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    }
     const handleToggle = () => setMenuOpen(!menuOpen);
 
     const navItems = [
@@ -60,7 +81,7 @@ const Navbar = () => {
                 {/* For all users */}
                 {user && (
                     <div className="hidden lg:flex items-center space-x-4">
-                        <button className="flex items-center gap-2 px-5 py-2 bg-gray-800 text-white font-medium rounded-md shadow-md hover:shadow-lg hover:scale-105 transition-transform">
+                        <button className="flex items-center gap-2 px-5 py-2 bg-green-800 text-white font-medium rounded-md shadow-md hover:shadow-lg hover:scale-105 transition-transform">
                             <FaUserCircle className="text-xl" />
                             Profile
                         </button>
@@ -68,7 +89,7 @@ const Navbar = () => {
                             <span>0</span>
                             <img src={coinImage} alt="coins" className="h-5 w-5" />
                         </div>
-                        <button className="px-5 py-2 bg-gray-800 text-white font-medium rounded-md shadow-md hover:shadow-lg hover:scale-105 transition-transform">
+                        <button className="px-5 py-2 bg-red-800 text-white font-medium rounded-md shadow-md hover:shadow-lg hover:scale-105 transition-transform" onClick={handleLogoutUser}>
                             Logout
                         </button>
                     </div>
@@ -118,9 +139,18 @@ const Navbar = () => {
                         <FiX />
                     </button>
                 </div>
+                {user && <div className="flex items-center justify-center"><button className="my-4 flex items-center justify-center gap-2 px-5 py-2 bg-green-800 text-white font-medium rounded-md shadow-md hover:shadow-lg hover:scale-105 transition-transform">
+                    <FaUserCircle className="text-xl" />
+                    Profile
+                </button>
+                    <div className="mx-4 flex items-center gap-2 bg-white text-black px-4 py-2 rounded-md shadow-md font-bold">
+                        <span>0</span>
+                        <img src={coinImage} alt="coins" className="h-5 w-5" />
+                    </div>
+                </div>}
 
                 {/* Navigation Links */}
-                <nav className="flex flex-col items-center mt-10 space-y-6">
+                <nav className="flex flex-col items-center mt-4 space-y-6">
                     {navItems.map((item, index) => (
                         <NavLink
                             to={item.path}
@@ -136,7 +166,9 @@ const Navbar = () => {
                         </NavLink>
                     ))}
                 </nav>
-
+                {user && <div className="flex justify-center items-center my-4"><button className="px-5 py-2 bg-red-800 text-white font-medium rounded-md shadow-md hover:shadow-lg hover:scale-105 transition-transform" onClick={handleLogoutUser}>
+                    Logout
+                </button></div>}
                 {/* Footer Section */}
                 <div className="flex flex-col items-center mt-12 space-y-6">
                     {!user && (
@@ -151,14 +183,16 @@ const Navbar = () => {
                                     Register
                                 </button>
                             </Link>
+
                         </div>
                     )}
-                    <a href="https://youtu.be/xKKPFoHkib0" target="_blank" rel="noopener noreferrer">
+                    {!user && <a href="https://youtu.be/xKKPFoHkib0" target="_blank" rel="noopener noreferrer">
                         <button className="mx-2 flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform">
                             <FaPlayCircle className="text-2xl animate-pulse" />
                             Watch Demo
                         </button>
-                    </a>
+                    </a>}
+
                 </div>
             </div>
         </header>
