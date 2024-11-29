@@ -10,7 +10,7 @@ const Testimonials = () => {
     const testimonials = [
         {
             name: "Raisul Islam Rifat",
-            image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "https://yt3.googleusercontent.com/s_ED6ArADWR6KBXZT5eeiBFH13YHMTovO15AugKQbRg5J8QVt_xMFNojz3qi6yZF8SlJ5Ou7lg=s160-c-k-c0x00ffffff-no-rj",
             quote: "This platform has changed the way I work. The tasks are simple, and the rewards are amazing!",
             email: "raisulrifat@example.com",
         },
