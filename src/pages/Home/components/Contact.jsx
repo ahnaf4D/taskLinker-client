@@ -17,8 +17,7 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here (e.g., send to API)
-        console.log('Form Submitted:', formData);
+        // console.log('Form Submitted:', formData);
     };
 
     return (
@@ -91,7 +90,7 @@ const Contact = () => {
                     <img
                         src={ContactImage} // Replace with your image URL
                         alt="Contact"
-                        className="w-full h-full object-cover opacity-80"
+                        className="w-full h-full object-cover opacity-80 rounded-lg"
                     />
                 </div>
             </div>
