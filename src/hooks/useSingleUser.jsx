@@ -21,5 +21,4 @@ const useSingleUser = () => {
     }, [user, loading, axiosSecure])
     return userData;
 };
-
 export default useSingleUser;
