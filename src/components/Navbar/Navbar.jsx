@@ -4,10 +4,11 @@ import { FaPlayCircle, FaUserCircle } from "react-icons/fa";
 import coinImage from "../../assets/dollar.png";
 import Logo from "../../assets/logo.png";
 import { Link, NavLink } from "react-router";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const user = false;
+    const { user } = useAuth();
 
     const handleToggle = () => setMenuOpen(!menuOpen);
 
@@ -152,6 +153,12 @@ const Navbar = () => {
                             </Link>
                         </div>
                     )}
+                    <a href="https://youtu.be/xKKPFoHkib0" target="_blank" rel="noopener noreferrer">
+                        <button className="mx-2 flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform">
+                            <FaPlayCircle className="text-2xl animate-pulse" />
+                            Watch Demo
+                        </button>
+                    </a>
                 </div>
             </div>
         </header>
