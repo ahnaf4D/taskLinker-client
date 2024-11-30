@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
+import GoogleAuth from './GoogleAuth';
 
 // Validation schema
 const schema = yup.object({
@@ -136,6 +137,7 @@ const Login = () => {
                         </p>
                     </div>
                 </form>
+                <GoogleAuth page={"login"}></GoogleAuth>
             </div>
         </div>
     );

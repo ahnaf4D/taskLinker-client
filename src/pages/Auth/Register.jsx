@@ -8,6 +8,7 @@ import useAuth from '../../hooks/useAuth';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { uploadingImageToCloudinary } from '../../utils/cloudinary';
 import Swal from 'sweetalert2'
+import GoogleAuth from './GoogleAuth';
 const schema = yup.object({
     name: yup.string().required('Full Name is required'),
     email: yup.string().email('Enter a valid email').required('Email is required'),
@@ -199,6 +200,7 @@ const Register = () => {
                     </div>
                 </form>
             </div>
+            <GoogleAuth page={"register"}></GoogleAuth>
         </div>
     );
 };
